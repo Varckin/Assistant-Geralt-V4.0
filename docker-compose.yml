@@ -1,0 +1,11 @@
+services:
+  geralt:
+    build: .
+    container_name: geralt_bot
+    command: python3 main.py
+    restart: unless-stopped
+    volumes:
+      - ./database.db:/app/database.db
+      - ./Data:/app/Data
+    env_file:
+      - .env
