@@ -10,17 +10,14 @@ jobs:
     steps:
       - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v1.0.3
-        env:
-          PATH_BOT: ${{ secrets.PATH_BOT }}
-          GIT_URL: ${{ secrets.GIT_URL }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             set -e
-            PROJECT_DIR="$PATH_BOT"
-            REPO_URL="$GIT_URL"
+            PROJECT_DIR="${{ secrets.PATH_BOT }}"
+            REPO_URL="${{ secrets.GIT_URL }}"
 
             if [ ! -d "$PROJECT_DIR/.git" ]; then
               echo "📁 Clone rep..."
