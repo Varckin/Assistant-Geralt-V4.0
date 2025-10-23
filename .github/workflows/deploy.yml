@@ -15,7 +15,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            set -e
+            set -ex
             PROJECT_DIR="${{ secrets.PATH_BOT }}"
             REPO_URL="${{ secrets.GIT_URL }}"
 
@@ -25,7 +25,8 @@ jobs:
             else
               echo "🔄 Update rep..."
               cd "$PROJECT_DIR"
-              git pull origin main
+              git fetch origin main
+              git reset --hard origin/main
             fi
 
             cd $PROJECT_DIR
