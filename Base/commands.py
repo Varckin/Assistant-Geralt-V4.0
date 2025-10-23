@@ -12,6 +12,7 @@ logger = get_logger(__name__)
 async def cmd_start(message: Message):
     await message.answer(text="Hello")
 
+
 @base_router.message(Command("about"))
 async def cmd_about(message: Message):
     version: str = os.getenv("VERSION_BOT")
