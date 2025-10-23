@@ -30,7 +30,7 @@ jobs:
               cd "$PROJECT_DIR"
               git pull origin main
             fi
-            
+
             cd $PROJECT_DIR
             docker compose down
             docker compose up -d --build
