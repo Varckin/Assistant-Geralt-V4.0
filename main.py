@@ -5,7 +5,6 @@ from aiogram import Bot, Dispatcher
 from Base.commands import base_router
 
 
-
 load_dotenv()
 logger = get_logger(__name__)
 
@@ -14,7 +13,6 @@ async def main():
     bot = Bot(token=token)
     dp = Dispatcher()
     dp.include_router(base_router)
-
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
