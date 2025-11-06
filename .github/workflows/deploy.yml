@@ -35,6 +35,7 @@ jobs:
             fi
 
             cd $PROJECT_DIR
+            mkdir -p ./Data
 
             echo "🧹 Cleaning Docker system..."
             docker system prune -af
