@@ -2,6 +2,7 @@ services:
   geralt:
     build: .
     container_name: geralt_bot
+    user: "1000:1000"
     command: python3 main.py
     restart: unless-stopped
     volumes:
